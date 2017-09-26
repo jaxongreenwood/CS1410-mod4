@@ -13,8 +13,10 @@ private:
     float inches;
 
 public:
-    Distance(): feet(0), inches(0){/*constructer data is always empty*/}; // constructor with no arguments
-    Distance(int ft, float in): feet(ft), inches(in){}; //Constructor with 2 arguments
+
+    Distance(): feet(0), inches(0){/*constructer data is always empty*/};   // constructor with no arguments
+    Distance(int ft, float in): feet(ft), inches(in){};                     //Constructor with 2 arguments
+
     void setdata (int f, float i) {  // Member function to set the data
 
         feet = f;
@@ -38,7 +40,7 @@ public:
     }
 
     void addDistance (Distance d1, Distance d2);
-
+    Distance addDistanceToMe(Distance d1);
 
 };
 
@@ -65,6 +67,11 @@ int main() {
     cout << "\nd4 = ";
     d4.showdata();
 
+    d4.addDistanceToMe(d2);
+
+    cout << "\nnew d4 = ";
+    d4.showdata();
+
 
     return 0;
 }
@@ -85,4 +92,19 @@ void Distance::addDistance (Distance d1, Distance d2) {
 
     feet += d1.feet + d2.feet;     // add feet
 
+}
+
+Distance Distance::addDistanceToMe(Distance d1) {
+
+    Distance temp;      //initial values 0, 0
+    temp.inches = inches + d1.inches;
+
+    if(temp.inches >= 12) {
+        temp.inches -= 12.0;
+        temp.feet += 1;
+    }
+
+    temp.feet += feet + d1.feet;
+
+    return temp;
 }
