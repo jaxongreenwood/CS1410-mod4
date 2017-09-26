@@ -14,6 +14,7 @@ private:
 
 public:
     Distance(): feet(0), inches(0){/*constructer data is always empty*/}; // constructor with no arguments
+    Distance(int ft, float in): feet(ft), inches(in){}; //Constructor with 2 arguments
     void setdata (int f, float i) {  // Member function to set the data
 
         feet = f;
@@ -32,7 +33,7 @@ public:
     void showdata () {      // Member function to get the data
 
         cout << "Feet is " << feet
-             << "\nInches is " << inches << endl;
+             << " and Inches is " << inches << endl;
 
     }
 
@@ -49,16 +50,10 @@ int main() {
 
     Distance d1, d2;
 
-
-
-    d1.setdata(6, 5.5);
-
     d1.showdata();
-
-
-    d2.getdata();
-
     d2.showdata();
+
+
     return 0;
 }
 
