@@ -9,13 +9,15 @@ using namespace std;
 // Constants
 class Distance {
 private:
+
     int feet;
     float inches;
+    static int count;       // static is only created when it is encounters, 1 member per class, it is shared with everyone
 
 public:
 
-    Distance(): feet(0), inches(0){/*constructer data is always empty*/};   // constructor with no arguments
-    Distance(int ft, float in): feet(ft), inches(in){};                     //Constructor with 2 arguments
+    Distance(): feet(0), inches(0){count++;};   // constructor with no arguments
+    Distance(int ft, float in): feet(ft), inches(in){count++;};                     //Constructor with 2 arguments
 
     void setdata (int f, float i) {  // Member function to set the data
 
@@ -39,11 +41,21 @@ public:
 
     }
 
+    int getCount() {
+        return count;
+    }
+
+    void showCount() {
+
+        cout << "Count is = " << count << endl;
+
+    }
+
     void addDistance (Distance d1, Distance d2);
     Distance addDistanceToMe(Distance d1);
 
 };
-
+int Distance::count = 0;
 // Prototypes
 
 // Main Program Program
@@ -55,8 +67,12 @@ int main() {
     cout << "d1 = ";
     d1.showdata();
 
+    cout << "Count is " << d1.getCount();
+
     cout << "\nd2 = ";
     d2.showdata();
+
+    cout << "Count is " << d1.getCount();
 
     cout << "\nd3 = ";
     d3.showdata();
