@@ -2,18 +2,18 @@
 // File: newPoint
 // Created by Jaxon Greenwood on 9/21/2017 for CS1410.
 // Copyright (c) 2017 WSU
-//
+
 #include <iostream>
 using namespace std;
 
 // Constants
 class Point {
 private:
-    float x;
+    float x; //class data members
     float y;
 
 public:
-    Point() : x(0), y(0){}
+    Point() : x(0), y(0){} // class functons
 
     void showPoint() {
         cout << x << "\n" << y;
