@@ -13,6 +13,7 @@ private:
     float inches;
 
 public:
+    Distance(): feet(0), inches(0){/*constructer data is always empty*/}; // constructor with no arguments
     void setdata (int f, float i) {  // Member function to set the data
 
         feet = f;
@@ -34,6 +35,8 @@ public:
              << "\nInches is " << inches << endl;
 
     }
+
+    void addDistance (Distance d1, Distance d2);
 
 
 };
@@ -60,3 +63,7 @@ int main() {
 }
 
 // Function Definitions
+
+void addDistance (Distance d1, Distance d2) {
+
+}
