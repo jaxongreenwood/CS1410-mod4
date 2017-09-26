@@ -48,10 +48,22 @@ public:
 
 int main() {
 
-    Distance d1, d2;
+    Distance d1, d2(8, 2), d3(2, 4), d4;
 
+    cout << "d1 = ";
     d1.showdata();
+
+    cout << "\nd2 = ";
     d2.showdata();
+
+    cout << "\nd3 = ";
+    d3.showdata();
+
+
+    d4.addDistance(d2, d3);
+
+    cout << "\nd4 = ";
+    d4.showdata();
 
 
     return 0;
@@ -59,6 +71,18 @@ int main() {
 
 // Function Definitions
 
-void addDistance (Distance d1, Distance d2) {
+// This belongs only to the class Distance, a method for members only
+// TEMPLATE: CLASSNAME::Function_name()
+void Distance::addDistance (Distance d1, Distance d2) {
+
+    inches = d1.inches + d2.inches;  //adding inches
+    feet = 0;
+
+    if(inches >= 12){
+        inches -= 12.0;            // check for extra foot
+        feet++;
+    }
+
+    feet += d1.feet + d2.feet;     // add feet
 
 }
